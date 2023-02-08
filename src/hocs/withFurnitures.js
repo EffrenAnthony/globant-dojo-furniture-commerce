@@ -17,16 +17,20 @@ export function withFurnitures(WrappedComponent) {
 
     useEffect(() => {
       (async () => {
-        const response = await getAllCollections();
-        const collectionList = response.data.map(item => {
-          return {
-            id: item.id,
-            name: item.attributes.collectionName,
-            maxPrice: item.attributes.maxPrice,
-            minPrice: item.attributes.minPrice,
-          };
-        });
-        setCollections([...collectionList]);
+        try {
+          const response = await getAllCollections();
+          const collectionList = response.data.map(item => {
+            return {
+              id: item.id,
+              name: item.attributes.collectionName,
+              maxPrice: item.attributes.maxPrice,
+              minPrice: item.attributes.minPrice,
+            };
+          });
+          setCollections([...collectionList]);
+        } catch (error) {
+          console.log(error);
+        }
       })();
     }, []);
 

@@ -1,19 +1,27 @@
-import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import React from 'react';
 import {DEFAULT_QUERY} from '../../../util/constants';
 import {capitalize} from 'lodash';
 
 const CollectionItem = ({item, setQuery, currentQuery}) => {
+  const textDecorationLine = {
+    textDecorationLine:
+      (currentQuery === item.name ||
+        (currentQuery === DEFAULT_QUERY && item.name === 'all')) &&
+      true,
+  };
   const labelStyles = {
     fontFamily:
       currentQuery === item.name ||
       (currentQuery === DEFAULT_QUERY && item.name === 'all')
         ? 'Lato_900Black'
         : 'Lato_400Regular',
-    textDecorationLine:
-      (currentQuery === item.name ||
-        (currentQuery === DEFAULT_QUERY && item.name === 'all')) &&
-      'underline',
     ...styles.label,
   };
   const handleSetQuery = () => {
@@ -34,7 +42,10 @@ const CollectionItem = ({item, setQuery, currentQuery}) => {
   return (
     <View>
       <TouchableWithoutFeedback onPress={handleSetQuery}>
-        <Text style={labelStyles}>{capitalize(item.name)}</Text>
+        <Text
+          style={[labelStyles, Platform.OS === 'ios' && textDecorationLine]}>
+          {capitalize(item.name)}
+        </Text>
       </TouchableWithoutFeedback>
     </View>
   );

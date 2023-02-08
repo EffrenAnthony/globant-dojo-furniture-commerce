@@ -1,13 +1,18 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, Platform, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 const Banner = () => {
+  const textDecorationLine = {
+    textDecorationLine: true,
+  };
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.title}>Karim chairs</Text>
         <Text style={styles.discount}>20% Off</Text>
-        <Text style={styles.cta}>Shop now</Text>
+        <Text style={[styles.cta, Platform.OS === 'ios' && textDecorationLine]}>
+          Shop now
+        </Text>
       </View>
       <View style={styles.firstCircle}>
         <View style={styles.secondCircle} />
@@ -43,7 +48,7 @@ const styles = StyleSheet.create({
     top: -30,
     height: 180,
     width: 180,
-    borderRadius: '100%',
+    borderRadius: 100,
   },
   secondCircle: {
     backgroundColor: 'rgba(217, 217, 217, 0.5);',
@@ -78,6 +83,5 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 17,
     color: '#FFFFFF',
-    textDecorationLine: 'underline',
   },
 });
