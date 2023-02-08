@@ -1,16 +1,26 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {CollectionList, Header, LanguageSwitch} from '../../components';
+import {SafeAreaView, ScrollView} from 'react-native';
+import {
+  CollectionList,
+  Header,
+  LanguageSwitch,
+  ProductList,
+} from '../../components/Store';
 import {withFurnitures} from '../../hocs/withFurnitures';
-import ProductList from '../../components/ProductList';
 
-const Store = ({collections, products, setQuery}) => {
+const Store = ({collections, products, setQuery, currentQuery}) => {
   return (
     <SafeAreaView>
       <LanguageSwitch />
-      <Header />
-      <CollectionList collections={collections} setQuery={setQuery} />
-      <ProductList products={products} />
+      <ScrollView>
+        <Header />
+        <CollectionList
+          collections={collections}
+          setQuery={setQuery}
+          currentQuery={currentQuery}
+        />
+        <ProductList products={products} />
+      </ScrollView>
     </SafeAreaView>
   );
 };

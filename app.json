@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "furniture-ecommerce-dojo",
-    "slug": "furniture-ecommerce-dojo",
+    "slug": "furniture-ecommerce",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "552cb1bf-c2ec-40dc-a4f3-1f54321ced97"
+      }
+    },
+    "owner": "effrenanthony"
   }
 }

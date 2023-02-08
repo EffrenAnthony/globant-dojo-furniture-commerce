@@ -1,5 +1,6 @@
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
+import Banner from './Banner';
 
 const Header = () => {
   return (
@@ -8,6 +9,7 @@ const Header = () => {
         {'Find the best furniture'.toUpperCase()}
       </Text>
       <TextInput placeholder="Search" style={styles.searchInput} />
+      <Banner />
     </View>
   );
 };
