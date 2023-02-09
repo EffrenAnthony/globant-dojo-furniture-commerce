@@ -6,7 +6,7 @@ import {capitalize} from 'lodash';
 import {getRandomInt} from '../util/helpers';
 
 export function withFurnitures(WrappedComponent) {
-  return function WrappedComponentWithFurnitures() {
+  return function WrappedComponentWithFurnitures(props) {
     const [collections, setCollections] = React.useState([]);
     const [products, setProducts] = React.useState([]);
     const [collectionQuery, setCollectionQuery] = React.useState({
@@ -74,6 +74,7 @@ export function withFurnitures(WrappedComponent) {
         products={products}
         setQuery={setCollectionQuery}
         currentQuery={collectionQuery.query}
+        {...props}
       />
     );
   };

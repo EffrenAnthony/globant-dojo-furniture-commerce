@@ -1,6 +1,8 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {Store} from './src/screens';
+import {NavigationContainer} from '@react-navigation/native';
 import useCachedResources from './src/hooks/useCachedResources';
+import Navigation from './src/navigation/Navigation';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -8,7 +10,11 @@ export default function App() {
   if (!isLoadingComplete) {
     return null;
   }
-  return <Store />;
+  return (
+    <NavigationContainer>
+      <Navigation />
+    </NavigationContainer>
+  );
 }
 
 // const styles = StyleSheet.create({
