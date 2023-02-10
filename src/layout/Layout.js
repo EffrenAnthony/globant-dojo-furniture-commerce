@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {LanguageSwitch} from '../components/Store';
 import {SafeAreaView} from 'react-native';
+import {LanguageSwitch} from '../components/Layout';
 
 const Layout = ({children}) => {
   return (
